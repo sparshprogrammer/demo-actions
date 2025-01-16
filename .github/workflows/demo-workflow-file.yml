@@ -1,0 +1,12 @@
+on: [push]
+
+jobs:
+  build:
+    name: Starting Point
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Printing message using Github Actions
+      run: |
+        echo This demo files shows a 
+        echo very basic and easy-to-understand workflow 
