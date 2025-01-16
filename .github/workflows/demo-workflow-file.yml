@@ -1,12 +1,29 @@
+name: Demo pyhton workflow
 on: [push]
 
 jobs:
   build:
-    name: Starting Point
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.10"]
     steps:
-    - uses: actions/checkout@v2
-    - name: Printing message using Github Actions
+    - uses: actions/checkout@v3
+    - name: Setting up python
+      uses: actions/setup-python@v4
+      with: 
+        python-version: ${{ matrix.python-version }} 
+    - name: Installing dependencies for Python project
       run: |
-        echo This demo files shows a 
-        echo very basic and easy-to-understand workflow 
+        python -m pip install --upgrade pip
+        pip install flake8 pytest
+        if [-f requirement.txt ]; then pip install -r requirement.txt; fi
+    - name: Linting Python project using flake8
+      run: |
+        flake8 . --count --select=E8,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Testing the python project using pytest
+    run: |
+      pip install pytest
+      pip install pytest-cov
+      pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
