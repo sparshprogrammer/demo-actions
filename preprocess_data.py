@@ -6,6 +6,6 @@ nifty_df = nifty_df.fillna(method='ffill')
 print(nifty_df)
 
 from pycaret.time_series import *
-exp = setup(nifty_df, target='target_column')
+exp = setup(nifty_df, target='Close')
 best_model = compare_models()
 print(best_model)
