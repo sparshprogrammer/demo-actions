@@ -31,7 +31,7 @@ jobs:
         python preprocess_data.py  # Replace with your Python script
 
     - name: Upload plot artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: nifty-plots
         path: ./your_plot.png  # The path where your plot is saved (adjust as needed)
