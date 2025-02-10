@@ -52,4 +52,4 @@ report.run(reference_data=train_data[['SMA_20', 'SMA_50', 'RSI']], current_data=
 
 # Step 5: Visualize the data drift
 report.show()
-report.save_html("data_drift_report.html")
+report.save_html("./data_drift_report.html")
