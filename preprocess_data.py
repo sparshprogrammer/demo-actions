@@ -39,6 +39,7 @@ plt.xlabel('Date')
 plt.ylabel('Close Price')
 plt.legend()
 plt.show()
+plt.savefig('nifty_plot.png')
 
 mae = mean_absolute_error(test_data['Close'], predictions)
 print(f'Mean Absolute Error: {mae}')
