@@ -3,6 +3,7 @@ from statsmodels.tsa.arima.model import ARIMA
 from evidently.report import Report
 from evidently import ColumnMapping
 from evidently.metric_preset import DataDriftPreset
+import matplotlib.pyplot as plt
 
 nifty_df = pd.read_csv('NIFTY_50.csv')
 
