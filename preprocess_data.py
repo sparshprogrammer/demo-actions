@@ -1,5 +1,6 @@
 import pandas as pd
 from statsmodels.tsa.arima.model import ARIMA
+from sklearn.metrics import mean_absolute_error
 from evidently.report import Report
 from evidently import ColumnMapping
 from evidently.metric_preset import DataDriftPreset
