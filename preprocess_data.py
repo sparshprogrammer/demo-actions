@@ -12,6 +12,7 @@ nifty_df['Date'] = pd.to_datetime(nifty_df['Date'], format='%Y-%m-%d')
 df = nifty_df
 
 # Feature engineering: Adding technical indicators to improve the model
+df['Returns'] = df['Close'].pct_change()
 df['SMA_20'] = df['Close'].rolling(window=20).mean()  # 20-day Simple Moving Average
 df['SMA_50'] = df['Close'].rolling(window=50).mean()  # 50-day Simple Moving Average
 df['RSI'] = 100 - (100 / (1 + df['Returns'].rolling(window=14).mean()))  # Relative Strength Index
