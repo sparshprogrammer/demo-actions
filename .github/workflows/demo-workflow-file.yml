@@ -34,4 +34,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: nifty-plots
-        path: ./your_plot.png  # The path where your plot is saved (adjust as needed)
+        path: |
+          ./your_plot.png  # The path where your plot is saved (adjust as needed)
+          ./data_drift_report.html
